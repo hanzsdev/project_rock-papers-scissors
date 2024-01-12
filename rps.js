@@ -3,9 +3,9 @@
 // Setup function for player choice
 // Setup prompt to take player input
 // Declare variable to store player choice
-// Setup function taking input from computer and player choice
-// If statements comparing computer and player choice with outcome 
-// Loops to fix a set ammount of rounds to determine winner of the game
+// Setup function taking input from computer and player choice playing one round
+// If statements comparing computer and player choice with outcome logged 
+// Loops to fix a set 5 rounds andd determine winner of the game
 
 
 
@@ -35,9 +35,23 @@ let playerChoice  =  (playerInput) => {
 }
 
 playerChoice(prompt('Choose your hand',));
-
 playerSelection = playerChoice;
-console.log(playerSelection);
+
+
+function game(playerSelection, computerSelection) {
+
+    if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+        console.log('Player wins');
+    } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
+        console.log('Computer wins');
+    } else if (playerSelection === 'Rock' && computerSelection === 'Rock') {
+        console.log('It\'s a draw');
+    }
+    return;
+
+}
+
+game(playerSelection, computerSelection);
 
 
 
