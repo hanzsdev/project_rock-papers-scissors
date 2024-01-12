@@ -34,24 +34,42 @@ let playerChoice  =  (playerInput) => {
 
 }
 
-playerChoice(prompt('Choose your hand',));
+playerChoice(prompt('Choose between: Rock, Paper or Scissors.',));
 playerSelection = playerChoice;
 
 
 function game(playerSelection, computerSelection) {
 
+    let gameResult;
+
     if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
-        console.log('Player wins');
+        gameResult = 1; console.log('Player wins');
     } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
-        console.log('Computer wins');
+        gameResult = 2; console.log('Computer wins');
     } else if (playerSelection === 'Rock' && computerSelection === 'Rock') {
-        console.log('It\'s a draw');
+        gameResult = 3; console.log('It\'s a draw');
+    } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+        gameResult = 1; console.log('Player wins');
+    } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
+        gameResult = 2; console.log('Computer wins');
+    } else if (playerSelection === 'Paper' && computerSelection === 'Paper') {
+        gameResult = 3; console.log('It\'s a draw');
+    } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
+        gameResult = 1;console.log('Player wins');
+    } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
+        gameResult = 2; console.log('Computer wins');
+    } else if (playerSelection === 'Scissors' && computerSelection === 'Scissors') {
+        gameResult = 3; console.log('It\'s a draw');
     }
-    return;
+    return gameResult;
 
 }
 
-game(playerSelection, computerSelection);
+gameResult = game(playerSelection, computerSelection);
+console.log(gameResult)
+
+
+
 
 
 
