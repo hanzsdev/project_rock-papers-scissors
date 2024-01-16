@@ -42,23 +42,23 @@ let playerSelection = playerChoice(prompt('Choose between: Rock, Paper or Scisso
 function game(playerSelection, computerSelection) {
     let gameResult;
     if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
-        gameResult = 1; console.log('Player wins');
+        gameResult = 1; console.log(`Player wins this round with a hand of ${playerSelection} vs ${computerSelection}`);
     } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
-        gameResult = 2; console.log('Computer wins');
+        gameResult = 2; console.log(`Computer wins this round with a hand of ${computerSelection} vs ${playerSelection}`);
     } else if (playerSelection === 'Rock' && computerSelection === 'Rock') {
-        gameResult = 3; console.log('It\'s a draw, rematch!');
+        gameResult = 3; console.log(`It\'s a draw with both hands ${playerSelection} and ${computerSelection}`);
     } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
-        gameResult = 1; console.log('Player wins');
+        gameResult = 1; console.log(`Player wins this round with a hand of ${playerSelection} vs ${computerSelection}`);
     } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
-        gameResult = 2; console.log('Computer wins');
+        gameResult = 2; console.log(`Computer wins this round with a hand of ${computerSelection} vs ${playerSelection}`);
     } else if (playerSelection === 'Paper' && computerSelection === 'Paper') {
-        gameResult = 3; console.log('It\'s a draw, rematch!');
+        gameResult = 3; console.log(`It\'s a draw with both hands ${playerSelection} and ${computerSelection}`);
     } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
-        gameResult = 1;console.log('Player wins');
+        gameResult = 1;console.log(`Player wins this round with a hand of ${playerSelection} vs ${computerSelection}`);
     } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
-        gameResult = 2; console.log('Computer wins');
+        gameResult = 2; console.log(`Computer wins this round with a hand of ${computerSelection} vs ${playerSelection}`);
     } else if (playerSelection === 'Scissors' && computerSelection === 'Scissors') {
-        gameResult = 3; console.log('It\'s a draw, rematch!');
+        gameResult = 3; console.log(`It\'s a draw with both hands ${playerSelection} and ${computerSelection}`);
     }
     return gameResult;
 }
@@ -71,41 +71,41 @@ function gameLoops(gameResult) {
     let playerScore = 0 
     let computerScore = 0;
     let rounds = 0;
-    
-    if (gameResult === 1) {
-        playerScore++; 
-        rounds++;
-    } else if (gameResult === 2) {
-        computerScore++;
-        rounds++;
-    } else if (gameResult === 3) {
-        playerSelection = playerChoice(prompt('Choose between: Rock, Paper or Scissors.',));
-        computerSelection = getComputerChoice();
-        gameResult = game(playerSelection, computerSelection);
-    }
 
     while (rounds < 5) {
+
+        if (gameResult === 1) {
+            playerScore++;
+            rounds++;
+            console.log(`Player has ${playerScore} points, on round ${rounds}`);
+        } else if (gameResult === 2) {
+            computerScore++;
+            rounds++;
+            console.log(`Computer has ${computerScore} points, on round ${rounds}`);
+        } else {
+            console.log(`game is a tie - lets do a rematch!`);
+        }
+
         playerSelection = playerChoice(prompt('Choose between: Rock, Paper or Scissors.',));
         computerSelection = getComputerChoice();
         gameResult = game(playerSelection, computerSelection);
-        rounds++;
 
-        if (rounds === 5) {
-            break;
-        } 
-}
+    }
+    
+        if (rounds === 5 && playerScore > computerScore) {
+            console.log('Player Wins the game!'); 
+        } else if ( rounds === 5 && computerScore > playerScore) {
+            console.log('Computer Wins the game!'); 
+        } else console.log("The game is a Draw!");
 
-    if (rounds === 5 && playerScore > computerScore) {
-        console.log('Player Wins the game!'); 
-    } else if ( rounds === 5 && computerScore > playerScore) {
-        console.log('Computer Wins the game!'); 
-    } else console.log("It's a Draw!");
+        }
 
-}
+        
+
+
+
 
 gameLoops(gameResult);
-
-
 
 
 
