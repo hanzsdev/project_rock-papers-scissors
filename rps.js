@@ -72,9 +72,9 @@ function gameLoops(gameResult) {
     let computerScore = 0;
     let rounds = 0;
 
-    while (rounds < 5) {
+    
 
-        if (gameResult === 1) {
+     if (gameResult === 1) {
             playerScore++;
             rounds++;
             console.log(`Player has ${playerScore} points, on round ${rounds}`);
@@ -90,8 +90,6 @@ function gameLoops(gameResult) {
         computerSelection = getComputerChoice();
         gameResult = game(playerSelection, computerSelection);
 
-    }
-    
         if (rounds === 5 && playerScore > computerScore) {
             console.log('Player Wins the game!'); 
         } else if ( rounds === 5 && computerScore > playerScore) {
